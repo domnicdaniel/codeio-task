@@ -1,0 +1,301 @@
+1. The Light Bulb Test
+Ramesh bought a smart light bulb that switches ON only if he enters an even number,
+otherwise it stays OFF.
+Input Format
+• An integer n
+Output Format
+• Print "ON" if the number is even
+• Print "OFF" if the number is odd
+Sample Test Cases
+Input 1:
+4
+Output 1:
+ON
+Input 2:
+7
+Output 2:
+OFF
+Input 3:
+0
+Output 3:
+ON
+
+
+Code :
+public class Main {
+    public static void main(String[] args) 
+    {
+        int n = 4;
+        if (n % 2 == 0) {
+            System.out.println("ON");
+        } 
+        else 
+        {
+            System.out.println("OFF");
+        }
+    }
+}
+
+
+2. The Bank Balance 
+A bank system needs to show the status of a customer’s account balance. 
+Input Format 
+• An integer balance 
+Output Format 
+• "Positive Balance" if balance > 0 
+• "Overdraft" if balance < 0 
+• "Zero Balance" if balance == 0 
+Sample Test Cases 
+Input 1: 
+250 
+Output 1: 
+Positive Balance 
+Input 2: 
+0 
+Output 2: 
+Zero Balance 
+Input 3: -120 
+Output 3: 
+Overdraft
+
+Code:
+public class Main {
+    public static void main(String[] args) 
+    {
+        int balance = -120; 
+        if (balance > 0) 
+        {
+            System.out.println("Positive Balance");
+        } 
+        else if (balance < 0) 
+        {
+            System.out.println("Overdraft");
+        } 
+        else 
+        {
+            System.out.println("Zero Balance");
+        }
+    }
+}
+
+
+3. The Faster Runner 
+Two friends, Arjun and Varun, run a race. Print who is faster. 
+Input Format 
+• Two integers time1 and time2 (in seconds) 
+Output Format 
+• "Arjun" if Arjun is faster 
+• "Varun" if Varun is faster 
+• "Tie" if both are equal 
+Sample Test Cases 
+Input 1: 
+12 10 
+Output 1: 
+Varun 
+Input 2: 
+15 20 
+Output 2: 
+Arjun 
+Input 3: 
+18 18 
+Output 3: 
+Tie
+
+Code: 
+public class Main {
+    public static void main(String[] args) 
+    {
+        int t1 = 15;
+        int t2 = 20;
+        
+        if (t1 < t2)
+        {
+            System.out.println("Arjun");
+        } 
+        else if (t2 < t1) 
+        {
+            System.out.println("Varun");
+        } 
+        else 
+        {
+            System.out.println("Tie");
+        }
+    }
+}
+
+
+4. The Biggest Treasure 
+Three pirates find three treasure chests with different amounts of gold coins. 
+Input Format 
+• Three integers a, b, c 
+Output Format 
+• Print the largest value 
+Sample Test Cases 
+Input 1: 
+10 25 7 
+Output 1: 
+25 
+Input 2: 
+5 5 9 
+Output 2: 
+9 
+Input 3: 
+100 50 75 
+Output 3: 
+100
+
+Code:
+public class Main {
+    public static void main(String[] args) 
+    {
+        int a = 100, b = 50, c = 75;
+        int largest = a;
+        
+        if (b > largest) {
+            largest = b;
+        }
+        if (c > largest) {
+            largest = c;
+        }
+        System.out.println(largest);
+    }
+}
+
+5. The Magic Calendar 
+A kingdom celebrates a festival only in leap years. 
+Input Format 
+• An integer year 
+Output Format 
+• "Leap Year" if it is a leap year 
+• "Not a Leap Year" otherwise 
+Sample Test Cases 
+Input 1: 
+2020 
+Output 1: 
+Leap Year 
+Input 2: 
+1900 
+Output 2: 
+Not a Leap Year 
+Input 3: 
+2000 
+Output 3: 
+Leap Year
+
+Code:
+public class Main {
+    public static void main(String[] args) 
+    {
+        int year = 2000;
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) 
+        {
+            System.out.println("Leap Year");
+        } 
+        else 
+        {
+            System.out.println("Not a Leap Year");
+        }
+    }
+}
+
+6. The Report Card 
+A school teacher wants to prepare a report card generator. 
+Input Format 
+• An integer marks (0–100) 
+Output Format 
+• "A" if marks >= 90 
+• "B" if marks >= 75 and < 90 
+• "C" if marks >= 50 and < 75 
+• "Fail" if marks < 50 
+Sample Test Cases 
+Input 1: 
+92 
+Output 1: 
+A 
+Input 2: 
+76 
+Output 2: 
+B 
+Input 3: 
+45 
+Output 3: 
+Fail
+
+Code:
+public class Main {
+    public static void main(String[] args) {
+        int marks = 76; 
+        if (marks >= 90) {
+            System.out.println("A");
+        } 
+        else if (marks >= 75) 
+        {
+            System.out.println("B");
+        } 
+        else if (marks >= 50) 
+        {
+            System.out.println("C");
+        } 
+         else 
+        {
+            System.out.println("Fail");
+        }
+    }
+}
+
+7. The Robot Assistant 
+A scientist built a robot that performs basic operations. 
+Input Format 
+• First line: two integers a and b 
+• Second line: an integer op representing the operation 
+o 1 → Addition 
+o 2 → Subtraction 
+o 3 → Multiplication 
+o 4 → Division 
+Output Format 
+• Print the result of the operation 
+Sample Test Cases 
+Input 1: 
+10 5 
+1 
+Output 1: 
+15 
+Input 2: 
+20 4 
+4 
+Output 2: 
+5 
+Input 3: 
+6 7 
+3 
+Output 3: 
+42
+
+Code:
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        int a = 6, b = 7;
+        int op = 3; 
+        int result = 0;
+        if (op == 1) 
+        {
+            result = a + b;
+        } 
+        else if (op == 2) 
+        {
+            result = a - b;
+        }
+        else if (op == 3) 
+        {
+            result = a * b;
+        } 
+        else if (op == 4) 
+        {
+            result = a / b;
+        }
+        
+        System.out.println(result);
+    }
+}
