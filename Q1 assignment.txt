@@ -21,7 +21,7 @@ Output 3:
 ON
 
 
-Code :
+Answer for this Code :
 public class Main {
     public static void main(String[] args) 
     {
@@ -58,7 +58,7 @@ Input 3: -120
 Output 3: 
 Overdraft
 
-Code:
+Answer for this Code:
 public class Main {
     public static void main(String[] args) 
     {
@@ -101,7 +101,7 @@ Input 3:
 Output 3: 
 Tie
 
-Code: 
+Answer for this Code: 
 public class Main {
     public static void main(String[] args) 
     {
@@ -144,7 +144,7 @@ Input 3:
 Output 3: 
 100
 
-Code:
+Answer for this Code:
 public class Main {
     public static void main(String[] args) 
     {
@@ -182,7 +182,7 @@ Input 3:
 Output 3: 
 Leap Year
 
-Code:
+Answer for this Code:
 public class Main {
     public static void main(String[] args) 
     {
@@ -221,7 +221,7 @@ Input 3:
 Output 3: 
 Fail
 
-Code:
+Answer for this Code:
 public class Main {
     public static void main(String[] args) {
         int marks = 76; 
@@ -271,7 +271,7 @@ Input 3:
 Output 3: 
 42
 
-Code:
+Answer for this Code:
 public class Main
 {
     public static void main(String[] args) 
@@ -299,3 +299,4 @@ public class Main
         System.out.println(result);
     }
 }
+
