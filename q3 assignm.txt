@@ -1,0 +1,212 @@
+ 1. Rectangle Class
+ Create a class Rectangle with attributes length and breadth. Write methods to calculate
+ area and perimeter. Create objects and display results
+
+SOLUTION :
+class Rectangle 
+{
+    double length, breadth;
+
+    Rectangle(double l, double b) 
+    {
+        length = l;
+        breadth = b;
+    }
+
+    double area() 
+    {
+        return length*breadth;
+    }
+
+    double perimeter() 
+    {
+        return 2*(length + breadth);
+    }
+
+    public static void main(String[] args) 
+    {
+        Rectangle r =new Rectangle(10, 5);
+        System.out.println("Area =" + r.area());
+        System.out.println("Perimeter =" + r.perimeter());
+    }
+}
+
+ 2. Student Class
+ Create a Student class with attributes name, rollNumber, and marks. Write a method to
+ display student details. Create 3 student objects and print their details
+
+SOLUTION:
+class Student 
+{
+    String name;
+    int rollNumber;
+    double marks;
+
+    Student(String n, int r, double m) 
+    {
+        name = n;
+        rollNumber = r;
+        marks = m;
+    }
+
+    void display() 
+    {
+        System.out.println("Name: " + name + ", Roll No: " + rollNumber + ", Marks: " + marks);
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student("Alice", 1, 89.5);
+        Student s2 = new Student("Bob", 2, 76.0);
+        Student s3 = new Student("Charlie", 3, 92.3);
+
+        s1.display();
+        s2.display();
+        s3.display();
+    }
+}
+
+
+ 3. BookClass with Constructors
+ Create a class Book with attributes title, author, and price. Implement:
+ · A default constructor
+ · A parameterized constructor
+ · A method displayBookDetails() to print book details.
+ Create objects using both constructors
+
+SOLUTION:
+class Book {
+    String title, author;
+    double price;
+   
+    Book() 
+    {
+        title = "Unknown";
+        author = "Unknown";
+        price = 0.0;
+    }
+
+    Book(String t, String a, double p) {
+        title = t;
+        author = a;
+        price = p;
+    }
+
+    void displayBookDetails() 
+    {
+        System.out.println("Title: " + title + ", Author: " + author + ", Price: " + price);
+    }
+
+    public static void main(String[] args) 
+    {
+        Book b1 = new Book();
+        Book b2 = new Book("Java", "James",899.99);
+        b1.displayBookDetails();
+        b2.displayBookDetails();
+    }
+}
+
+ 4. BankAccount Class
+ Create a class BankAccount with attributes accountNumber and balance.
+ · Provide a default constructor (balance = 0).
+ · Provide a parameterized constructor to initialize balance.
+ · Add methods deposit(double amount) and withdraw(double amount).
+ Test with multiple transactions
+
+SOLUTION:
+class BankAccount 
+{
+    int accountNumber;
+    double balance;
+
+    BankAccount(int accNo) {
+        accountNumber = accNo;
+        balance = 0.0;
+    }
+
+    BankAccount(int accNo, double initialBalance) 
+    {
+        accountNumber = accNo;
+        balance = initialBalance;
+    }
+
+    void deposit(double amount) 
+    {
+        balance += amount;
+        System.out.println("Deposited: " + amount + ", Balance: " + balance);
+    }
+
+    void withdraw(double amount) 
+    {
+        if (amount <= balance) 
+        {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount + ", Balance: " + balance);
+        } 
+        else 
+        {
+            System.out.println("Insufficient balance!");
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        BankAccount acc1 = new BankAccount(658698780);
+        BankAccount acc2 = new BankAccount(769778709,1000.00);
+        acc1.deposit(2000);
+        acc1.withdraw(500);
+        acc2.deposit(3000);
+        acc2.withdraw(8000);
+    }
+}
+
+ 5. Employee Salary
+ Create a class Employee with private attributes name, id, and salary.
+ · Provide getter and setter methods.
+ · Inthe main method, create an employee object, set details, and print them
+
+SOLUTION:
+class Employee 
+{
+    private String name;
+    private int id;
+    private double salary;
+
+  public String getName() 
+  {
+      return name;
+  }
+  public int getId()
+  {
+      return id;
+  }
+  public double getSalary() 
+  {
+     return salary;
+  }
+
+   public void setName(String n) 
+   {
+     name=n;
+   }
+   public void setId(int i) 
+   {
+      id=i;
+   }
+   public void setSalary(double s)
+   {
+       salary=s;
+   }
+
+   public static void main(String[] args) 
+   {
+        Employee e = new Employee();
+        e.setName("John Doe");
+        e.setId(101);
+        e.setSalary(45000);
+
+        System.out.println("Employee Details:");
+        System.out.println("Name: "+ e.getName());
+        System.out.println("Id "+ e.getId());
+        System.out.println("Salary:" + e.getSalary());
+   }
+}
