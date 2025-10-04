@@ -1,0 +1,410 @@
+/*point class ( copy  constructor)
+class Point {
+    int x, y;
+
+    Point(int x, int y) 
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    Point(Point p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
+}
+
+public class PointDemo {
+    public static void main(String[] args) {
+        Point p1 = new Point(10, 20);
+        Point p2 = new Point(p1);
+        p1.x=5;
+        System.out.println("Original:" + p1.x + " " + p1.y);
+        System.out.println("Copied:" + p2.x + " " + p2.y);
+    }
+}*/
+
+/*Student Record(copy Constructor)
+class Student {
+    String name;
+    int rollNo;
+    double marks;
+
+    Student(String n, int r, double m) 
+    {
+        name = n; 
+        rollNo = r;
+        marks = m;
+    }
+
+    Student(Student s) 
+    {
+        name = s.name;
+        rollNo = s.rollNo;
+        marks = s.marks;
+    }
+}
+
+public class StudentRecord {
+    public static void main(String[] args) {
+        Student s1 = new Student("Domnic", 62212460, 90.5);
+        Student s2 = new Student(s1);
+
+        s2.name = "Daniel"; 
+
+        System.out.println(s1.name + " - " + s1.rollNo+" -"+s1.marks);
+        System.out.println(s2.name + " - " + s2.rollNo+" -"+s2.marks);
+    }
+}*/
+
+/*Playable Media (Interface)
+interface Playable 
+{
+    void play();
+    void pause();
+}
+
+class AudioPlayer implements Playable 
+{
+    public void play() 
+    { 
+        System.out.println("Playing audio");
+    }
+    public void pause() 
+    { 
+        System.out.println("Audio pause"); 
+    }
+}
+
+class VideoPlayer implements Playable
+{
+    public void play() 
+    {
+        System.out.println("Playing video"); 
+        
+    }
+    public void pause() 
+    { 
+        System.out.println("Video paused"); 
+        
+    }
+}
+public class MediaDemo 
+{
+    public static void main(String[] args)
+    {
+        Playable audio = new AudioPlayer();
+        Playable video = new VideoPlayer();
+        audio.play(); audio.pause();
+        video.play(); video.pause();
+    }
+} */
+
+/*Payment System(Interface)
+interface Payment 
+{
+    void pay(double amount);
+    void refund(double amount);
+}
+
+class CreditCardPayment implements Payment
+{
+    public void pay(double amount) 
+    { 
+        System.out.println("Paid " + amount + " using Credit Card."); 
+    }
+    public void refund(double amount) 
+    { 
+        System.out.println("Refunded " + amount + " to Credit Card."); 
+    }
+}
+
+class UPIPayment implements Payment 
+{
+    public void pay(double amount) 
+    { 
+        System.out.println("Paid " + amount + " using UPIPay"); 
+        
+    }
+    public void refund(double amount) 
+    { 
+        System.out.println("Refunded " + amount + " via UPIPay"); 
+        
+    }
+}
+
+public class PaymentDemo 
+{
+    public static void main(String[] args) 
+    {
+        Payment p1 = new CreditCardPayment();
+        Payment p2 = new UPIPayment();
+        p1.pay(1000); 
+        p1.refund(200);
+        p2.pay(500); 
+        p2.refund(100);
+    }
+}   */
+
+/*Student grading(inheritance)
+class Person 
+{
+    String name;
+    int age;
+}
+
+class Student extends Person 
+{
+    int marks;
+    String grade;
+}
+
+class GraduateStudent extends Student 
+{
+    String researchTopic;
+}
+
+public class StudentGrading 
+{
+    public static void main(String[] args) 
+    {
+        GraduateStudent gs = new GraduateStudent();
+        gs.name = "Alice";
+        gs.age = 23;
+        gs.marks = 88;
+        gs.grade = "A";
+        gs.researchTopic = "Machine Learning";
+        System.out.println("Name: " + gs.name);
+        System.out.println("Age: " + gs.age);
+        System.out.println("Marks: " + gs.marks);
+        System.out.println("Grade: " + gs.grade);
+        System.out.println("Research Topic: " + gs.researchTopic);
+    }
+} */
+
+/*LibrarySystem(Inheritance)
+class Book {
+    String title, author;
+    double price;
+}
+
+class TextBook extends Book {
+    String subject;
+}
+
+class Magazine extends Book {
+    String issue;
+}
+
+public class LibrarySystem {
+    public static void main(String[] args) {
+        TextBook t = new TextBook();
+        t.title = "Java Programming";
+        t.author = "James Gosling";
+        t.price = 500;
+        t.subject = "Computer Science";
+
+        Magazine m = new Magazine();
+        m.title = "Tech Monthly";
+        m.author = "Editorial Team";
+        m.price = 150;
+        m.issue = "October 2025";
+        System.out.println("TextBook: " + t.title + " - " + t.subject);
+        System.out.println("Author: " + t.author + ", Price- " + t.price);
+        System.out.println();
+        System.out.println("Magazine: " + m.title + " - " + m.issue);
+        System.out.println("Author: " + t.author + ", Price- " + t.price);
+    }
+} */
+
+/*Vehicle control (abstraction)
+abstract class Vehicle 
+{
+    abstract void start();
+    abstract void stop();
+}
+
+class Car extends Vehicle 
+{
+    void start() 
+    { 
+        System.out.println("Car starting..."); 
+        
+    }
+    void stop() 
+    { 
+        System.out.println("Car stopped."); 
+        
+    }
+}
+
+class Bike extends Vehicle 
+{
+    void start() 
+    { 
+        System.out.println("Bike starting..."); 
+        
+    }
+    void stop() 
+    { 
+        System.out.println("Bike stopped."); 
+        
+    }
+}
+
+public class VehicleDemo 
+{
+    public static void main(String[] args)
+    {
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Bike();
+        v1.start(); 
+        v1.stop();
+        v2.start(); 
+        v2.stop();
+    }
+}  */
+
+/*Bank Account (abstraction)
+abstract class BankAccount 
+{
+    double balance;
+    abstract void deposit(double amount);
+    abstract void withdraw(double amount);
+}
+
+class SavingsAccount extends BankAccount 
+{
+    void deposit(double amount) { balance += amount; }
+    void withdraw(double amount) {
+        if (balance - amount >= 500)
+            balance -= amount;
+        else
+            System.out.println("Minimum balance required!");
+    }
+}
+
+class CurrentAccount extends BankAccount 
+{
+    void deposit(double amount) { balance += amount; }
+    void withdraw(double amount) {
+        if (balance - amount >= -1000)
+            balance -= amount;
+        else
+            System.out.println("Overdraft limit reached!");
+    }
+}
+
+public class BankDemo
+{
+    public static void main(String[] args) {
+        BankAccount acc1 = new SavingsAccount();
+        acc1.deposit(2000);
+        acc1.withdraw(1700);
+
+        BankAccount acc2 = new CurrentAccount();
+        acc2.deposit(1000);
+        acc2.withdraw(1800);
+    }
+} */
+
+/*Bank Account 
+class Employee 
+{
+    double getBonus() {
+        return 0;
+    }
+}
+
+class Manager extends Employee 
+{
+    double getBonus() {
+        return 10000;
+    }
+}
+
+class Developer extends Employee 
+{
+    double getBonus() {
+        return 5000;
+    }
+}
+
+public class EmployeeBonus 
+{
+    public static void main(String[] args) {
+        Employee e1 = new Manager();
+        Employee e2 = new Developer();
+        
+        System.out.println("Manager Bonus: " + e1.getBonus());
+        System.out.println("Developer Bonus: " + e2.getBonus());
+    }
+} */
+
+//Calculator(polymorp)
+class Shape 
+{
+    double area() 
+    {
+        return 0;  
+    }
+}
+
+class Circle extends Shape 
+{
+    double radius;
+    Circle(double r) 
+    {
+        radius = r; 
+        
+    }
+    double area() 
+    { 
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape 
+{
+    double length, breadth;
+    Rectangle(double l, double b) 
+    { 
+        length = l; 
+        breadth = b; 
+    }
+    double area() 
+    { 
+        return length * breadth; 
+    }
+}
+
+class Triangle extends Shape 
+{
+    double base, height;
+    Triangle(double b, double h) 
+    { 
+        base = b; 
+        height = h; 
+    }
+    double area() 
+    { 
+        return 0.5 * base * height; 
+    }
+}
+
+public class ShapeAreaCalculator
+{
+    public static void main(String[] args) {
+        Shape[] shapes = {
+            new Circle(5),
+            new Rectangle(4, 6),
+            new Triangle(3, 7)
+        };
+
+        for (Shape s : shapes)
+        {
+            System.out.println("Area: " + s.area());
+        }
+    }
+}
+
