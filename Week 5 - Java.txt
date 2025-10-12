@@ -1,0 +1,78 @@
+class InsufficientBalanceException extends Exception {
+    InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+
+class BankAccount {
+    private int balance;
+
+    BankAccount(int balance) {
+        this.balance = balance;
+    }
+
+    synchronized void deposit(int amount) throws InsufficientBalanceException {
+        if (amount <= 0)
+            throw new InsufficientBalanceException("Deposit amount must be positive");
+        balance += amount;
+        System.out.println(Thread.currentThread().getName() + " deposited ₹" + amount + " | Balance: ₹" + balance);
+    }
+
+    synchronized void withdraw(int amount) throws InsufficientBalanceException {
+        if (amount <= 0)
+            throw new InsufficientBalanceException("Withdraw amount must be positive");
+        if (amount > balance)
+            throw new InsufficientBalanceException("Not enough balance to withdraw ₹" + amount);
+        balance -= amount;
+        System.out.println(Thread.currentThread().getName() + " withdrew ₹" + amount + " | Balance: ₹" + balance);
+    }
+
+    int getBalance() {
+        return balance;
+    }
+}
+
+class UserThread extends Thread {
+    BankAccount account;
+
+    UserThread(BankAccount account, String name) 
+    {
+        super(name);
+        this.account = account;
+    }
+
+    public void run() {
+        try 
+        {
+            account.deposit(500);
+            account.withdraw(300);
+            account.withdraw(800);  // might cause exception
+        } catch (InsufficientBalanceException e) {
+            System.out.println(getName() + " error: " + e.getMessage());
+        }
+    }
+}
+
+public class SimpleBank {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000);
+
+        UserThread u1 = new UserThread(account, "User1");
+        UserThread u2 = new UserThread(account, "User2");
+        UserThread u3 = new UserThread(account, "User3");
+
+        u1.start();
+        u2.start();
+        u3.start();
+
+        try {
+            u1.join();
+            u2.join();
+            u3.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\nFinal Balance: ₹" + account.getBalance());
+    }
+}
